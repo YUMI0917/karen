@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from time import time
+from random import *
 
 def quicksort(lista):
     """ Quicksort 
@@ -18,6 +19,19 @@ def quicksort(lista):
         + quicksort([x for x in lista if x > lista[0]])
 
 start_time = time() # tiempo actual
-print(quicksort([45,7,100,0,5,1,56,4,78,13,10]))
+lst = []
+try:
+    size = int(input("\nEscriba el tamaño de la lista a crear: \t"))
+except:
+    print("Error al ingresar la cantidad de elementos")
+ 
+for i in range(size):
+    elements = randint(1,300)
+    lst.append(elements)
+ 
+try:
+    print(quicksort(lst))
+except:
+    print("Error inesperado")
 final_time = time() - start_time
 print("Tiempo (ms): ",round(float(final_time*1000), 2), " millisegundos" ) 
